@@ -19,5 +19,17 @@
             return listaEmpleados;
             
         }
+
+        public Empleados GetEmpleadoByCod(string codEmpleado)
+        {
+            return listaEmpleados.Where(e => e.CodEmpleado == codEmpleado).SingleOrDefault();
+        }
+
+
+        public void NuevoEmpleado(Empleados emp)
+        {
+            listaEmpleados.Add(emp);
+        }
+
     }
 }
