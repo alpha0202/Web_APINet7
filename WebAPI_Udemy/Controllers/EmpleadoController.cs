@@ -63,6 +63,38 @@ namespace WebAPI_Udemy.Controllers
             return empleados.ConvertirDTO();
         }
 
+        [HttpPut]
+        public ActionResult<EmpleadoDTO> ModificarEmpleado(EmpleadoDTO emp)
+        {
+            var empleadoAux = _servicioEmpleado.GetEmpleadoByCod(emp.CodEmpleado);
+            if (empleadoAux is null)
+            {
+                return NotFound();
+            }
+
+            empleadoAux.CodEmpleado= emp.CodEmpleado;
+            empleadoAux.Nombre= emp.Nombre; 
+            empleadoAux.Email= emp.Email;   
+            empleadoAux.Edad= emp.Edad;
+
+            _servicioEmpleado.ModificarEmpleado(empleadoAux);
+
+            return emp;
+        }
+
+        [HttpDelete]
+
+        public ActionResult BorrarEmpleado(string codEmpleado)
+        {
+            var empleadoBorrar = _servicioEmpleado.GetEmpleadoByCod(codEmpleado);
+            if (empleadoBorrar is null)
+            {
+                return NotFound();
+            }
+
+            _servicioEmpleado.BajaEmpleado(codEmpleado);
+            return Ok();
+        }
 
 
     }

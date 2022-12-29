@@ -12,5 +12,11 @@
 
         public void NuevoEmpleado(Empleados emp);
 
+
+        public void ModificarEmpleado(Empleados emp);
+
+
+        public void BajaEmpleado(string codEmpleado);
+
     }
 }

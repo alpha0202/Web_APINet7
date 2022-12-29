@@ -31,5 +31,22 @@
             listaEmpleados.Add(emp);
         }
 
+
+        public void ModificarEmpleado(Empleados emp)
+        {
+            int posicion = listaEmpleados.FindIndex(existeEmpleado => existeEmpleado.Id== emp.Id);
+            if(posicion != -1)
+                listaEmpleados[posicion] = emp;
+        }
+
+        public void BajaEmpleado(string codEmpleado)
+        {
+            int posicion = listaEmpleados.FindIndex(existeEmpleado => existeEmpleado.CodEmpleado== codEmpleado);
+            if (posicion != -1)
+                listaEmpleados.RemoveAt(posicion);
+
+        }
+
+
     }
 }
