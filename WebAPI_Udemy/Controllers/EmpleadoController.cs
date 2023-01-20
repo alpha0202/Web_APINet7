@@ -10,10 +10,10 @@ namespace WebAPI_Udemy.Controllers
     public class EmpleadoController : ControllerBase
     {
 
-        private readonly IServicioEmpleado _servicioEmpleado;
+        private readonly IServicioEmpleadoSQL _servicioEmpleado;
 
 
-        public EmpleadoController(IServicioEmpleado servicioEmpleado)
+        public EmpleadoController(IServicioEmpleadoSQL servicioEmpleado)
         {
             _servicioEmpleado = servicioEmpleado;
         }
@@ -50,7 +50,7 @@ namespace WebAPI_Udemy.Controllers
         {
             Empleados empleados = new Empleados
             {
-                Id = _servicioEmpleado.GetEmpleados().Max(e => e.Id) + 1,
+                //Id = _servicioEmpleado.GetEmpleados().Max(e => e.Id) + 1,
                 CodEmpleado = empDTO.CodEmpleado,
                 Nombre = empDTO.Nombre,
                 Email = empDTO.Email,
